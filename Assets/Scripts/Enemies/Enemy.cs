@@ -7,8 +7,8 @@ namespace Game.Enemies
     public abstract class Enemy : MonoBehaviour
     {
         //Specs
-        protected int health;
-        public float speed;
+        [SerializeField] protected int health = 100;
+        [SerializeField] [Range(0f, 10f)] public float speed = 5f;
         private int currentHealth;
 
         //Mapper Specs
@@ -31,8 +31,10 @@ namespace Game.Enemies
                 Destroy(gameObject);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
+            print(currentHealth);
+
             transform.position = Vector2.MoveTowards(transform.position, targetVertex.position, speed * Time.deltaTime);
 
             if (transform.position == targetVertex.position)

@@ -5,14 +5,15 @@ using UnityEditor;
 
 namespace Game.DefenseUnits
 {
-    public class Tower : MonoBehaviour
+    public abstract class Tower : MonoBehaviour
     {
-        private Transform target;
-
-        [Header("Tower Specs")]
+        protected Transform target;
+        //Specs
         [SerializeField] [Range(0f, 10f)] private float range = 7f;
+        [SerializeField] protected float fireDelta = 2f;
+        [SerializeField] protected int damage = 10;
 
-        
+
         void FixedUpdate()
         {
             Targeting();
@@ -43,6 +44,8 @@ namespace Game.DefenseUnits
                 target = null;
             }
         }
+
+        public abstract void Fire();
 
         private void OnDrawGizmosSelected()
         {           
