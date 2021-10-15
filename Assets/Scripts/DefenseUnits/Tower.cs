@@ -14,10 +14,7 @@ namespace Game.DefenseUnits
         [SerializeField] protected int damage = 10;
 
 
-        void FixedUpdate()
-        {
-            Targeting();
-        }
+        void FixedUpdate() => Targeting();
 
         private void Targeting()
         {

@@ -33,7 +33,7 @@ namespace Game.Enemies
 
         private void FixedUpdate()
         {
-            print(currentHealth);
+            //print(currentHealth);
 
             transform.position = Vector2.MoveTowards(transform.position, targetVertex.position, speed * Time.deltaTime);
 
@@ -47,6 +47,10 @@ namespace Game.Enemies
             {
                 targetVertex = vertices[currentIndex];
                 currentIndex++;
+            }
+            else
+            {
+                //game over statement (UnityAction)
             }
         }
 
