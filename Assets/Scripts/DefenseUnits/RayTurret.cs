@@ -18,7 +18,7 @@ namespace Game.DefenseUnits
 
         public override void Fire()
         {
-            if (!ReferenceEquals(target, null))
+            if (target != null)
             {
                 StartCoroutine(DrawRay());
                 target.GetComponent<Enemy>().TakeDamage(damage);

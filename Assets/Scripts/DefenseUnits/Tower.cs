@@ -18,7 +18,7 @@ namespace Game.DefenseUnits
 
         private void Targeting()
         {
-            if (ReferenceEquals(target, null))
+            if (target == null) //searhing for target
             {
                 Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, range);
 
@@ -27,7 +27,7 @@ namespace Game.DefenseUnits
                     target = targets[0].transform;
                 }
             }
-            else if (Vector2.Distance(transform.position, target.position) <= range)
+            else if (Vector2.Distance(transform.position, target.position) <= range) //target in range
             {
                 Vector3 dir = target.position - transform.position;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -36,7 +36,7 @@ namespace Game.DefenseUnits
                     transform.eulerAngles.y, 
                     angle - 90f));
             }
-            else
+            else //stop tracking
             {
                 target = null;
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game.Enemies
 {
@@ -33,7 +34,7 @@ namespace Game.Enemies
 
         private void FixedUpdate()
         {
-            //print(currentHealth);
+            print(gameObject.name+"'s health = "+currentHealth);
 
             transform.position = Vector2.MoveTowards(transform.position, targetVertex.position, speed * Time.deltaTime);
 
@@ -50,6 +51,7 @@ namespace Game.Enemies
             }
             else
             {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 //game over statement (UnityAction)
             }
         }
